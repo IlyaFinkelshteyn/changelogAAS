@@ -1,5 +1,5 @@
 init:
-- ps: sleep 20
+- type src\ChangelogProvider.Generator\ChangelogProvider.Generator.fsproj
 
 dotnet_csproj:
   patch: true
@@ -7,5 +7,7 @@ dotnet_csproj:
   version: '{version}'
   package_version: '{version}'
 
-build: off
+build_script:
+- type src\ChangelogProvider.Generator\ChangelogProvider.Generator.fsproj
+
 test: off
