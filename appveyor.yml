@@ -1,4 +1,4 @@
-init:
+install:
 - type src\ChangelogProvider.Generator\ChangelogProvider.Generator.fsproj
 
 dotnet_csproj:
