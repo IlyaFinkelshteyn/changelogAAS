@@ -1,40 +1,8 @@
-image: Visual Studio 2017
-
-version: 1.0.0-beta{build}
-
-cache:
-  - packages -> paket.lock
-
-test: off
-
-pull_requests:
-  do_not_increment_build_number: true
-
-nuget:
-  project_feed: true
-  disable_publish_on_pr: true
-
 dotnet_csproj:
   patch: true
   file: '**\*.fsproj'
   version: '{version}'
   package_version: '{version}'
 
-build_script:
-  - ps: dotnet pack src/ChangelogProvider.Generator/ChangelogProvider.Generator.fsproj -c Release -o ../../artifacts/
-
-artifacts:
-  - path: artifacts\*.nupkg
-
-for:
--
-  branches:
-    only:
-      - master
-
-  deploy:
-    provider: NuGet
-    api_key:
-      secure: L7odOFMnsYXsr9xOYNQDYWd50oiW4exiv+EubBMfPYVYfkQ/56T9p+D8wtmPFpHL
-    skip_symbols: true
-    artifact: /.*\.nupkg/
+build: off
+test: off
